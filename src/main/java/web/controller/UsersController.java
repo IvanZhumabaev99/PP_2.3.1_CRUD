@@ -1,10 +1,10 @@
 package web.controller;
 
-import web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import web.model.User;
 import web.service.UserService;
 
 import java.util.List;
@@ -24,13 +24,13 @@ public class UsersController {
     public String getAllUser(ModelMap modelMap) {
         List<User> list = userService.getAllUsers();
         modelMap.addAttribute("list", list);
-        return "userList";
+        return "/wiev/userList.html";
     }
 
     @GetMapping(value = "/new")
     public String addUserForm(ModelMap model) {
         model.addAttribute("user", new User());
-        return "/new";
+        return "/wiev/new.html";
     }
 
     @PostMapping()
@@ -43,7 +43,13 @@ public class UsersController {
     public String editUser(@PathVariable("id") int id, ModelMap model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "editUser";
+        return "/wiev/editUser.html";
+    }
+
+    @PostMapping(value = "/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
+        userService.deleteUser(id);
+        return "redirect:/user";
     }
 
     @GetMapping(value = "/{id}")
@@ -53,9 +59,5 @@ public class UsersController {
         return "redirect:/user/";
     }
 
-    @PostMapping(value = "/{id}")
-    public String deleteUser(@PathVariable("id") int id) {
-        userService.deleteUser(id);
-        return "redirect:/user";
-    }
+
 }

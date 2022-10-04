@@ -20,7 +20,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     //Добавление конфигурации, в которой инициализируем ViewResolver, для корректного отображения jsp.
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebConfig.class};
+        return new Class<?>[]{WebConfig.class};
     }
 
     //Данный метод указывает url, на котором будет базироваться приложение
@@ -30,19 +30,19 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     }
 
     @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        super.onStartup(servletContext);
-        registerCharacterEncodingFilter(servletContext);
+    public void onStartup(ServletContext context) throws ServletException {
+        super.onStartup(context);
+        registerCharacterEncodingFilter(context);
     }
 
-    private void registerCharacterEncodingFilter(ServletContext servletContext) {
+    private void registerCharacterEncodingFilter(ServletContext context) {
         EnumSet<DispatcherType> dispatcherTypes =
                 EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ASYNC);
 
         CharacterEncodingFilter characterEncodingFilter =
                 new CharacterEncodingFilter("UTF-8", true, true);
 
-        servletContext.addFilter("encoding", characterEncodingFilter)
+        context.addFilter("encoding", characterEncodingFilter)
                 .addMappingForUrlPatterns(dispatcherTypes, true, "/*");
     }
 }

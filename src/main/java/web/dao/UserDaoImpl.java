@@ -1,7 +1,5 @@
 package web.dao;
 
-//import jakarta.persistence.EntityManager;
-//import jakarta.persistence.PersistenceContext;
 import web.model.User;
 import org.springframework.stereotype.Repository;
 
