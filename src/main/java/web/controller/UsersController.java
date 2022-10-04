@@ -24,13 +24,13 @@ public class UsersController {
     public String getAllUser(ModelMap modelMap) {
         List<User> list = userService.getAllUsers();
         modelMap.addAttribute("list", list);
-        return "/wiev/userList.html";
+        return "userList";
     }
 
     @GetMapping(value = "/new")
     public String addUserForm(ModelMap model) {
         model.addAttribute("user", new User());
-        return "/wiev/new.html";
+        return "/new";
     }
 
     @PostMapping()
@@ -43,7 +43,7 @@ public class UsersController {
     public String editUser(@PathVariable("id") int id, ModelMap model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "/wiev/editUser.html";
+        return "/editUser";
     }
 
     @PostMapping(value = "/{id}")
