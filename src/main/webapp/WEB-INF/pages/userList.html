@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>spring-mvs</title>
 </head>
 <body>
 <div align="center">
@@ -15,18 +15,27 @@
             <th>Surname</th>
             <th>Department</th>
             <th>Salary</th>
+            <th colspan="2">Operations</th>
         </tr>
         <tr th:each="user : ${list}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.surname}"></td>
-            <td th:text="${user.department}"></td>
-            <td th:text="${user.salary}"></td>
-            <td><a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
+            <td th:text="${user.getId}">Id</td>
+            <td th:text="${user.getName}">name</td>
+            <td th:text="${user.getSurname}">surname</td>
+            <td th:text="${user.getDepartment}">department</td>
+            <td th:text="${user.getSalary}">salary</td>
+            <td>
+            <form th:method="GET" th:action="@{/{id}/edit(id=${user.getId()})}" th:object="${user}">
+                <input type="submit" value="Update">
+            </form>
+            <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+                <input type="submit" value="Delete">
+            </form>
 
-            <td><a th:href="@{/user/delete/{id}(id=${user.id})}">Delete</a></td>
+            </td>
         </tr>
     </table>
 </div>
+<br>
+
 </body>
 </html>

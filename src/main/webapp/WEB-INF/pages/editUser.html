@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>spring-mvs</title>
 </head>
 <body>
 <div align="center">
     <h2>Edit User</h2>
-    <form th:action="@{/user/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+    <form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}"  >
         <br/> Name:
         <input type="text" th:field="*{name}"/>
         <br/> Surname:

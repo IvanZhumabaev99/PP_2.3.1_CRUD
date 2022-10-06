@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>spring-mvs</title>
 </head>
 <body>
+<h2>USER INFO</h2>
+
 <div align="center">
-    <form th:action="@{/user/new}" th:object="${user}" method="post">
+    <form th:method="POST" th:action="@{/new}" th:object="${user}">
         <br/> Name:
         <input type="text" th:field="*{name}"/>
         <br/> Surname:
