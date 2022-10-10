@@ -11,7 +11,7 @@ import web.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UsersController {
 
     private final UserService userService;
@@ -28,35 +28,36 @@ public class UsersController {
         return "userList";
     }
 
-    @GetMapping("user/new")
+    @GetMapping(value = "/new")
     public String addUserForm(ModelMap model) {
         model.addAttribute("user", new User());
-        return "new";
+        return "/new";
     }
 
-    @PostMapping() //"/new"
+    @PostMapping("/new") // "/new" сохраняем нового "юзера" и возвращаемся на страницу /user/
     public String addUser(@ModelAttribute("user") User user) {
         userService.addUser(user);
-        return "redirect:/";
+        return "redirect:/user/";
     }
 
-    @GetMapping("/{id}/edit")
-    public String updateUser(@PathVariable("id") int id, Model model) {
-        //User user = userService.getUserById(id);
-        model.addAttribute("user", userService.getUserById(id));
+    @GetMapping(value = "/edit/{id}")  //открывается окно с юзером для изменений В
+    public String editUser(@PathVariable("id") int id, ModelMap model) {
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
         return "editUser";
     }
 
-    @PatchMapping("/{id}")
-    public String updateUser(@ModelAttribute("user") User user,
-                         @PathVariable("id") int id) {
+    @GetMapping(value = "/{id}") //--> нажимаем "сохранить изменения" --> пересылает на страницу /new/edit/{2}
+    public String update(@ModelAttribute("user") User user,
+                             @PathVariable("id") int id) {
         userService.updateUser(user, id);
-        return "redirect:/";
+        return "redirect:/user/";
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping(value = "/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUser(id);
-        return "redirect:/";
+        return "redirect:/user";
     }
+
 }

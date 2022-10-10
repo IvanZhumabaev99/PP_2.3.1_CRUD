@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>spring-mvs</title>
+    <title>Все пользователи</title>
 </head>
 <body>
 <div align="center">
-    <h2>List All Users</h2>
-    <h3><a href="/user/new">New User</a></h3>
+    <h2>Список всех пользователей</h2>
+
     <table border="1" cellpadding="5">
         <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Name</th>
             <th>Surname</th>
             <th>Department</th>
@@ -18,24 +18,20 @@
             <th colspan="2">Operations</th>
         </tr>
         <tr th:each="user : ${list}">
-            <td th:text="${user.getId}">Id</td>
-            <td th:text="${user.getName}">name</td>
-            <td th:text="${user.getSurname}">surname</td>
-            <td th:text="${user.getDepartment}">department</td>
-            <td th:text="${user.getSalary}">salary</td>
+            <td th:text="${user.Id}"></td>
+            <td th:text="${user.Name}"></td>
+            <td th:text="${user.Surname}"></td>
+            <td th:text="${user.Department}"></td>
+            <td th:text="${user.Salary}"></td>
             <td>
-            <form th:method="GET" th:action="@{/{id}/edit(id=${user.getId()})}" th:object="${user}">
-                <input type="submit" value="Update">
-            </form>
-            <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
-                <input type="submit" value="Delete">
-            </form>
+            <td><a th:href="@{/user/edit/{id}(id=${user.id})}">Изменить</a></td>
 
-            </td>
+            <td><a th:href="@{/user/delete/{id}(id=${user.id})}">Удалить</a></td>
+
         </tr>
     </table>
+    <h3><a href="/user/new">Добавить пользователя</a></h3>
 </div>
-<br>
 
 </body>
 </html>

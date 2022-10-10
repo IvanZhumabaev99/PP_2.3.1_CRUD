@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>spring-mvs</title>
+    <title>Добавление User-a</title>
 </head>
 <body>
-<h2>USER INFO</h2>
 
 <div align="center">
-    <form th:method="POST" th:action="@{/new}" th:object="${user}">
+    <form th:action="@{/user/new}" th:object="${user}" method="post">
         <br/> Name:
         <input type="text" th:field="*{name}"/>
         <br/> Surname:
@@ -18,7 +17,7 @@
         <br/> Salary:
         <input type="text" th:field="*{salary}"/>
         <br/>
-        <input type="submit" value="Save"/>
+        <input type="submit" value="Сохранить"/>
     </form>
 </div>
 </body>

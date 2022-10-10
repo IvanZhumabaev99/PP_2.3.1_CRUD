@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2732a511-5e8b-4999-a922-9efe6d4883fd" name="Changes" comment="исправил">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/crud_spring_mvc_hibernate_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/crud_spring_mvc_hibernate_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/config/AppInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/config/AppInit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controller/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/editUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/editUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/new.html" afterDir="false" />
@@ -306,7 +303,7 @@
       <workItem from="1664880886421" duration="2358000" />
       <workItem from="1664884654236" duration="16192000" />
       <workItem from="1664908958354" duration="1163000" />
-      <workItem from="1664940372734" duration="18834000" />
+      <workItem from="1664940372734" duration="43412000" />
     </task>
     <task id="LOCAL-00001" summary="исправил">
       <created>1664612857190</created>
@@ -336,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664881640193</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="исправил">
+      <created>1665076516010</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665076516010</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
