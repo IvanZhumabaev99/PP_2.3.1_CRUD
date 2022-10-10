@@ -34,7 +34,7 @@ public class UsersController {
         return "/new";
     }
 
-    @PostMapping("/new") // "/new" сохраняем нового "юзера" и возвращаемся на страницу /user/
+    @PostMapping("/new") // ("/new" - попробовать сделать пустым) сохраняем нового "юзера" и возвращаемся на страницу /user/
     public String addUser(@ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/user/";
@@ -47,14 +47,14 @@ public class UsersController {
         return "editUser";
     }
 
-    @GetMapping(value = "/{id}") //--> нажимаем "сохранить изменения" --> пересылает на страницу /new/edit/{2}
+    @PostMapping(value = "/edit/{id}") //--> нажимаем "сохранить изменения" --> пересылает на страницу /new/edit/{2}
     public String update(@ModelAttribute("user") User user,
                              @PathVariable("id") int id) {
         userService.updateUser(user, id);
-        return "redirect:/user/";
+        return "redirect:/user";
     }
 
-    @PostMapping(value = "/{id}")
+    @GetMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUser(id);
         return "redirect:/user";
