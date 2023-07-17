@@ -7,11 +7,11 @@ import java.util.List;
 public interface UserDao {
     List<User> getAllUsers();
 
-    void addUser(User user);//возможность добавить Usera
+    void addUser(User user);// добавить Usera
 
-    User getUserById(int id);//возможность получить пользователя по id
+    User getUserById(int id);// получить пользователя по id
 
-    User updateUser(User user, int id);//возможность изменить Usera
+    User updateUser(User user, int id);// изменить Usera
 
-    void deleteUser(int id);//возможность удалить Usera
+    void deleteUser(int id);// удалить Usera
 }
